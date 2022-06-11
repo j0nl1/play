@@ -1,0 +1,14 @@
+syntax = "proto3";
+package j0nl1.play.checkers;
+
+import "gogoproto/gogo.proto";
+import "checkers/params.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/j0nl1/play/x/checkers/types";
+
+// GenesisState defines the checkers module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  // this line is used by starport scaffolding # genesis/proto/state
+}

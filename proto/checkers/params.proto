@@ -1,0 +1,12 @@
+syntax = "proto3";
+package j0nl1.play.checkers;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/j0nl1/play/x/checkers/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+  
+}
