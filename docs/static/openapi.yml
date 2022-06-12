@@ -51761,6 +51761,11 @@ definitions:
     description: |-
       Version defines the versioning scheme used to negotiate the IBC verison in
       the connection handshake.
+  j0nl1.play.checkers.MsgCreateGameResponse:
+    type: object
+    properties:
+      idValue:
+        type: string
   j0nl1.play.checkers.NextGame:
     type: object
     properties:
