@@ -29801,6 +29801,42 @@ paths:
           format: uint64
       tags:
         - Query
+  /j0nl1/play/checkers/next_game:
+    get:
+      summary: Queries a NextGame by index.
+      operationId: J0Nl1PlayCheckersNextGame
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              NextGame:
+                type: object
+                properties:
+                  idValue:
+                    type: string
+                    format: uint64
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      tags:
+        - Query
   /j0nl1/play/checkers/params:
     get:
       summary: Parameters queries the parameters of the module.
@@ -51544,20 +51580,25 @@ definitions:
     description: |-
       Version defines the versioning scheme used to negotiate the IBC verison in
       the connection handshake.
+  j0nl1.play.checkers.NextGame:
+    type: object
+    properties:
+      idValue:
+        type: string
+        format: uint64
   j0nl1.play.checkers.Params:
     type: object
     description: Params defines the parameters for the module.
-  j0nl1.play.checkers.QueryParamsResponse:
+  j0nl1.play.checkers.QueryGetNextGameResponse:
     type: object
     properties:
-      params:
-        description: params holds all the parameters of this module.
+      NextGame:
         type: object
-    description: QueryParamsResponse is response type for the Query/Params RPC method.
-  j0nl1.play.play.Params:
-    type: object
-    description: Params defines the parameters for the module.
-  j0nl1.play.play.QueryParamsResponse:
+        properties:
+          idValue:
+            type: string
+            format: uint64
+  j0nl1.play.checkers.QueryParamsResponse:
     type: object
     properties:
       params:
