@@ -1,0 +1,15 @@
+syntax = "proto3";
+package j0nl1.play.checkers;
+
+option go_package = "github.com/j0nl1/play/x/checkers/types";
+
+message StoredGame {
+  string index = 1; 
+  string creator = 2; 
+  string game = 3; 
+  string turn = 4; 
+  string red = 5; 
+  string black = 6; 
+  
+}
+
