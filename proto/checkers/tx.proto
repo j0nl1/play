@@ -7,8 +7,9 @@ option go_package = "github.com/j0nl1/play/x/checkers/types";
 
 // Msg defines the Msg service.
 service Msg {
-      rpc CreateGame(MsgCreateGame) returns (MsgCreateGameResponse);
+  rpc CreateGame(MsgCreateGame) returns (MsgCreateGameResponse);
   rpc PlayMove(MsgPlayMove) returns (MsgPlayMoveResponse);
+  rpc RejectGame(MsgRejectGame) returns (MsgRejectGameResponse);
 // this line is used by starport scaffolding # proto/tx/rpc
 }
 
@@ -36,6 +37,14 @@ message MsgPlayMoveResponse {
   uint64 capturedX = 2;
   uint64 capturedY = 3;
   string winner = 4;
+}
+
+message MsgRejectGame {
+  string creator = 1;
+  string idValue = 2;
+}
+
+message MsgRejectGameResponse {
 }
 
 // this line is used by starport scaffolding # proto/tx/message

@@ -51779,6 +51779,8 @@ definitions:
         format: uint64
       winner:
         type: string
+  j0nl1.play.checkers.MsgRejectGameResponse:
+    type: object
   j0nl1.play.checkers.NextGame:
     type: object
     properties:
