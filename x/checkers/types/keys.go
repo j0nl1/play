@@ -30,6 +30,11 @@ const (
 	PlayMoveEventCapturedX = "CapturedX"
 	PlayMoveEventCapturedY = "CapturedY"
 	PlayMoveEventWinner    = "Winner"
+
+	// RejectGame keys
+	RejectGameEventKey     = "GameRejected"
+	RejectGameEventCreator = "Creator"
+	RejectGameEventIdValue = "IdValue"
 )
 
 func KeyPrefix(p string) []byte {
