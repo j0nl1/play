@@ -51766,6 +51766,19 @@ definitions:
     properties:
       idValue:
         type: string
+  j0nl1.play.checkers.MsgPlayMoveResponse:
+    type: object
+    properties:
+      idValue:
+        type: string
+      capturedX:
+        type: string
+        format: uint64
+      capturedY:
+        type: string
+        format: uint64
+      winner:
+        type: string
   j0nl1.play.checkers.NextGame:
     type: object
     properties:
