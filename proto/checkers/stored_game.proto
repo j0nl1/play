@@ -16,5 +16,6 @@ message StoredGame {
   string afterId = 10;
   string winner = 11;
   uint64 wager = 12;
+  string token = 13;
 }
 

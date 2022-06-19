@@ -52,6 +52,7 @@ const (
 
 	// Wager
 	StoredGameEventWager = "Wager"
+	StoredGameEventToken = "Token"
 
 	// Gas
 	CreateGameGas = 10

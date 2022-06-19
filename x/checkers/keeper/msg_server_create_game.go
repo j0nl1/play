@@ -32,6 +32,7 @@ func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (
 		AfterId:   types.NoFifoIdKey,
 		Winner:    rules.PieceStrings[rules.NO_PLAYER],
 		Wager:     msg.Wager,
+		Token:     msg.Token,
 	}
 
 	err := storedGame.Validate()
@@ -56,6 +57,7 @@ func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (
 			sdk.NewAttribute(types.StoredGameEventRed, msg.Red),
 			sdk.NewAttribute(types.StoredGameEventBlack, msg.Black),
 			sdk.NewAttribute(types.StoredGameEventWager, strconv.FormatUint(msg.Wager, 10)),
+			sdk.NewAttribute(types.StoredGameEventToken, msg.Token),
 		),
 	)
 
