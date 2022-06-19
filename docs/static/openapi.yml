@@ -29801,6 +29801,69 @@ paths:
           format: uint64
       tags:
         - Query
+  '/j0nl1/play/checkers/can_play_move/{idValue}/{player}/{fromX}/{fromY}/{toX}/{toY}':
+    get:
+      summary: Queries a list of CanPlayMove items.
+      operationId: J0Nl1PlayCheckersCanPlayMove
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            type: object
+            properties:
+              possible:
+                type: boolean
+              reason:
+                type: string
+        default:
+          description: An unexpected error response.
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              details:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    '@type':
+                      type: string
+                  additionalProperties: {}
+      parameters:
+        - name: idValue
+          in: path
+          required: true
+          type: string
+        - name: player
+          in: path
+          required: true
+          type: string
+        - name: fromX
+          in: path
+          required: true
+          type: string
+          format: uint64
+        - name: fromY
+          in: path
+          required: true
+          type: string
+          format: uint64
+        - name: toX
+          in: path
+          required: true
+          type: string
+          format: uint64
+        - name: toY
+          in: path
+          required: true
+          type: string
+          format: uint64
+      tags:
+        - Query
   /j0nl1/play/checkers/next_game:
     get:
       summary: Queries a NextGame by index.
@@ -29817,6 +29880,10 @@ paths:
                   idValue:
                     type: string
                     format: uint64
+                  fifoHead:
+                    type: string
+                  fifoTail:
+                    type: string
         default:
           description: An unexpected error response.
           schema:
@@ -29900,6 +29967,20 @@ paths:
                       type: string
                     black:
                       type: string
+                    moveCount:
+                      type: string
+                      format: uint64
+                    deadline:
+                      type: string
+                    beforeId:
+                      type: string
+                    afterId:
+                      type: string
+                    winner:
+                      type: string
+                    wager:
+                      type: string
+                      format: uint64
               pagination:
                 type: object
                 properties:
@@ -30029,6 +30110,20 @@ paths:
                     type: string
                   black:
                     type: string
+                  moveCount:
+                    type: string
+                    format: uint64
+                  deadline:
+                    type: string
+                  beforeId:
+                    type: string
+                  afterId:
+                    type: string
+                  winner:
+                    type: string
+                  wager:
+                    type: string
+                    format: uint64
         default:
           description: An unexpected error response.
           schema:
@@ -51787,6 +51882,10 @@ definitions:
       idValue:
         type: string
         format: uint64
+      fifoHead:
+        type: string
+      fifoTail:
+        type: string
   j0nl1.play.checkers.Params:
     type: object
     description: Params defines the parameters for the module.
@@ -51810,6 +51909,20 @@ definitions:
               type: string
             black:
               type: string
+            moveCount:
+              type: string
+              format: uint64
+            deadline:
+              type: string
+            beforeId:
+              type: string
+            afterId:
+              type: string
+            winner:
+              type: string
+            wager:
+              type: string
+              format: uint64
       pagination:
         type: object
         properties:
@@ -51835,6 +51948,13 @@ definitions:
                    repeated Bar results = 1;
                    PageResponse page = 2;
            }
+  j0nl1.play.checkers.QueryCanPlayMoveResponse:
+    type: object
+    properties:
+      possible:
+        type: boolean
+      reason:
+        type: string
   j0nl1.play.checkers.QueryGetNextGameResponse:
     type: object
     properties:
@@ -51844,6 +51964,10 @@ definitions:
           idValue:
             type: string
             format: uint64
+          fifoHead:
+            type: string
+          fifoTail:
+            type: string
   j0nl1.play.checkers.QueryGetStoredGameResponse:
     type: object
     properties:
@@ -51862,6 +51986,20 @@ definitions:
             type: string
           black:
             type: string
+          moveCount:
+            type: string
+            format: uint64
+          deadline:
+            type: string
+          beforeId:
+            type: string
+          afterId:
+            type: string
+          winner:
+            type: string
+          wager:
+            type: string
+            format: uint64
   j0nl1.play.checkers.QueryParamsResponse:
     type: object
     properties:
@@ -51884,6 +52022,20 @@ definitions:
         type: string
       black:
         type: string
+      moveCount:
+        type: string
+        format: uint64
+      deadline:
+        type: string
+      beforeId:
+        type: string
+      afterId:
+        type: string
+      winner:
+        type: string
+      wager:
+        type: string
+        format: uint64
   tendermint.spn.claim.ClaimRecord:
     type: object
     properties:
