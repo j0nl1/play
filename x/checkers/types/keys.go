@@ -41,6 +41,9 @@ const (
 	// Deadline keys
 	MaxTurnDuration = time.Duration(1 * 3_600 * 1000_000_000) // 1 hour
 	DeadlineLayout  = "2006-01-02 15:04:05.999999999 +0000 UTC"
+
+	// Fifo
+	NoFifoIdKey = "-1"
 )
 
 func KeyPrefix(p string) []byte {
