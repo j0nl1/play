@@ -49,6 +49,9 @@ const (
 	ForfeitGameEventKey     = "GameForfeited"
 	ForfeitGameEventIdValue = "IdValue"
 	ForfeitGameEventWinner  = "Winner"
+
+	// Wager
+	StoredGameEventWager = "Wager"
 )
 
 func KeyPrefix(p string) []byte {

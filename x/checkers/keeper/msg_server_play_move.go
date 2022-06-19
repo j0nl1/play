@@ -24,6 +24,13 @@ func (k msgServer) PlayMove(goCtx context.Context, msg *types.MsgPlayMove) (*typ
 		return nil, types.ErrGameFinished
 	}
 
+	if storedGame.MoveCount <= 1 {
+		err := k.Keeper.CollectWager(ctx, &storedGame)
+		if err != nil {
+			return nil, err
+		}
+	}
+
 	isRed := strings.Compare(storedGame.Red, msg.Creator) == 0
 	isBlack := strings.Compare(storedGame.Black, msg.Creator) == 0
 
@@ -76,6 +83,7 @@ func (k msgServer) PlayMove(goCtx context.Context, msg *types.MsgPlayMove) (*typ
 		k.Keeper.SendToFifoTail(ctx, &storedGame, &nextGame)
 	} else {
 		k.Keeper.RemoveFromFifo(ctx, &storedGame, &nextGame)
+		k.Keeper.MustPayWinnings(ctx, &storedGame)
 	}
 
 	storedGame.Game = game.String()

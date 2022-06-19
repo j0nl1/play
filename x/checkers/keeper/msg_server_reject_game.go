@@ -40,6 +40,7 @@ func (k msgServer) RejectGame(goCtx context.Context, msg *types.MsgRejectGame) (
 	}
 	k.Keeper.RemoveFromFifo(ctx, &storedGame, &nextGame)
 	k.Keeper.RemoveStoredGame(ctx, msg.IdValue)
+	k.Keeper.MustRefundWager(ctx, &storedGame)
 
 	k.Keeper.SetNextGame(ctx, nextGame)
 
