@@ -44,6 +44,11 @@ const (
 
 	// Fifo
 	NoFifoIdKey = "-1"
+
+	// Auto-expiring
+	ForfeitGameEventKey     = "GameForfeited"
+	ForfeitGameEventIdValue = "IdValue"
+	ForfeitGameEventWinner  = "Winner"
 )
 
 func KeyPrefix(p string) []byte {
