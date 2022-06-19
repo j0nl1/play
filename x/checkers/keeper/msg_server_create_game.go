@@ -30,6 +30,7 @@ func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (
 		Deadline:  types.FormatDeadline(types.GetNextDeadline(ctx)),
 		BeforeId:  types.NoFifoIdKey,
 		AfterId:   types.NoFifoIdKey,
+		Winner:    rules.PieceStrings[rules.NO_PLAYER],
 	}
 
 	err := storedGame.Validate()

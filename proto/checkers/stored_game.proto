@@ -14,5 +14,6 @@ message StoredGame {
   string deadline = 8;
   string beforeId = 9;
   string afterId = 10;
+  string winner = 11;
 }
 
